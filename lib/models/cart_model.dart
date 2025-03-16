@@ -1,12 +1,14 @@
 // ignore_for_file: unused_field
 
-class Product {
+import 'package:snacksprite/models/products_model.dart';
+
+class Products {
   int? _totalSize;
   int? _typeId;
   int? _offset;
   late List<CartModel> _products;
   List<CartModel> get products => _products;
-  Product(
+  Products(
       {required totalSize,
       required typeId,
       required offset,
@@ -17,7 +19,7 @@ class Product {
     _typeId = typeId;
   }
 
-  Product.fromJson(Map<String, dynamic> json) {
+  Products.fromJson(Map<String, dynamic> json) {
     _totalSize = json['total_size'];
     _typeId = json['type_id'];
     _offset = json['offset'];
@@ -38,6 +40,7 @@ class CartModel {
   int? quantity;
   bool? isExist;
   String? time;
+  ProductsModel? product;
 
   CartModel({
     this.id,
@@ -47,6 +50,7 @@ class CartModel {
     this.quantity,
     this.isExist,
     this.time,
+    this.product,
   });
 
   CartModel.fromJson(Map<String, dynamic> json) {
@@ -57,5 +61,6 @@ class CartModel {
     quantity = json['quantity'];
     time = json['time'];
     isExist = json['isExist'];
+    product = ProductsModel.fromJson(json['product']);
   }
 }

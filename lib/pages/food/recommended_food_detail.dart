@@ -13,7 +13,9 @@ import 'package:snacksprite/widgets/expandable_text_widget.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
-  const RecommendedFoodDetail({super.key, required this.pageId});
+  final String page;
+  const RecommendedFoodDetail(
+      {super.key, required this.pageId, required this.page});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,11 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(RouteHelper.getInitial());
+                    if (page == 'cartpage') {
+                      Get.toNamed(RouteHelper.cartPage);
+                    } else {
+                      Get.toNamed(RouteHelper.getInitial());
+                    }
                   },
                   child: const AppIcon(
                     icon: Icons.clear,
@@ -42,8 +48,15 @@ class RecommendedFoodDetail extends StatelessWidget {
                 GetBuilder<PopularProductController>(builder: (controller) {
                   return Stack(
                     children: [
-                      const AppIcon(icon: Icons.shopping_cart_outlined),
-                      Get.find<PopularProductController>().totalItems >= 1
+                      GestureDetector(
+                          onTap: () {
+                            if (controller.totalItems >= 1) {
+                              Get.toNamed(RouteHelper.cartPage);
+                            }
+                          },
+                          child: const AppIcon(
+                              icon: Icons.shopping_cart_outlined)),
+                      controller.totalItems >= 1
                           ? const Positioned(
                               right: 0,
                               top: 0,

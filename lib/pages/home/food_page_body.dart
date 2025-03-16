@@ -14,7 +14,9 @@ import 'package:snacksprite/widgets/icon_text_widget.dart';
 import 'package:snacksprite/widgets/small_text.dart';
 
 class FoodPageBody extends StatefulWidget {
-  const FoodPageBody({super.key});
+  const FoodPageBody({
+    super.key,
+  });
 
   @override
   State<FoodPageBody> createState() => _FoodPageBodyState();
@@ -120,7 +122,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteHelper.getRecommendedFood(index));
+                        Get.toNamed(
+                          RouteHelper.getRecommendedFood(index, "home"),
+                        );
                       },
                       child: Container(
                         margin: EdgeInsets.only(
@@ -260,7 +264,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           GestureDetector(
             onTap: () {
-              Get.toNamed(RouteHelper.getPopularFood(index));
+              Get.toNamed(RouteHelper.getPopularFood(index, "home"));
             },
             child: Container(
               height: Dimension.pageViewContainer,
