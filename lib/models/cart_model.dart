@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field
+// ignore_for_file: unused_field, unnecessary_this
 
 import 'package:snacksprite/models/products_model.dart';
 
@@ -62,5 +62,18 @@ class CartModel {
     time = json['time'];
     isExist = json['isExist'];
     product = ProductsModel.fromJson(json['product']);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": this.id,
+      "name": this.name,
+      "price": this.price,
+      "img": this.img,
+      "quantity": this.quantity,
+      "isExist": this.isExist,
+      "time": this.time,
+      "product": this.product!.toJson(),
+    };
   }
 }

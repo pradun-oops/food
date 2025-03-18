@@ -204,8 +204,8 @@ class CartPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: GetBuilder<PopularProductController>(
-        builder: (popularproduct) {
+      bottomNavigationBar: GetBuilder<CartController>(
+        builder: (cartController) {
           return Container(
             height: Dimension.bottomHeightBar,
             padding: EdgeInsets.only(
@@ -233,38 +233,14 @@ class CartPage extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
-                        Dimension.radius20,
+                        Dimension.radius15,
                       ),
                       color: Colors.white),
                   child: Row(
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          popularproduct.setQuantity(false);
-                        },
-                        child: const Icon(
-                          Icons.remove,
-                          color: AppColors.signColor,
-                        ),
-                      ),
-                      SizedBox(
-                        width: Dimension.width10 / 2,
-                      ),
                       BigText(
-                        text: popularproduct.inCartItems.toString(),
+                        text: "₹${cartController.totalAmount.toString()}",
                         color: Colors.black54,
-                      ),
-                      SizedBox(
-                        width: Dimension.width10 / 2,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          popularproduct.setQuantity(true);
-                        },
-                        child: const Icon(
-                          Icons.add,
-                          color: AppColors.signColor,
-                        ),
                       ),
                     ],
                   ),
@@ -281,7 +257,7 @@ class CartPage extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {},
                     child: BigText(
-                      text: "₹${250} | Add to cart",
+                      text: "Check Out",
                       color: Colors.white,
                     ),
                   ),

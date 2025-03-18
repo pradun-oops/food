@@ -39,8 +39,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   void dispose() {
-    super.dispose();
     pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -289,10 +289,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: Dimension.pageViewTextContainer,
+              height: Dimension.pageViewTextContainer * 1.1,
               margin: EdgeInsets.only(
-                  left: Dimension.height30,
-                  right: Dimension.height30,
+                  left: Dimension.height20,
+                  right: Dimension.height20,
                   bottom: Dimension.height30),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimension.radius20),

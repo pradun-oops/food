@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:snacksprite/controller/cart_controller.dart';
 import 'package:snacksprite/controller/popular_product_controller.dart';
 import 'package:snacksprite/controller/recommended_product_controller.dart';
-import 'package:snacksprite/pages/home/main_food_page.dart';
 import 'package:snacksprite/route/route_helper.dart';
 import 'helper/dependencies.dart' as dep;
 
@@ -17,13 +17,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<PopularProductController>().getPopularProductList();
-    Get.find<RecommendedProductController>().getRecommendedProductList();
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const MainFoodPage(),
-      initialRoute: RouteHelper.initial,
-      getPages: RouteHelper.route,
+    Get.find<CartController>().getCartData();
+    return GetBuilder<PopularProductController>(
+      builder: (_) {
+        return GetBuilder<RecommendedProductController>(builder: (_) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            initialRoute: RouteHelper.splashScreen,
+            getPages: RouteHelper.route,
+          );
+        });
+      },
     );
   }
 }

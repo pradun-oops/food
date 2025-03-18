@@ -1,2 +1,0 @@
-/media/pradun/New Volume/Flutter Projects/food/android/app/.cxx/Debug/5x5z3ra2/x86/CMakeFiles/edit_cache.dir
-/media/pradun/New Volume/Flutter Projects/food/android/app/.cxx/Debug/5x5z3ra2/x86/CMakeFiles/rebuild_cache.dir
