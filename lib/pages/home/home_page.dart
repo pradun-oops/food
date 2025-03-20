@@ -1,8 +1,9 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, unused_field
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:snacksprite/pages/cart/cart_history.dart';
 import 'package:snacksprite/pages/home/main_food_page.dart';
 import 'package:snacksprite/utils/color.dart';
 
@@ -17,25 +18,6 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   late PersistentTabController _controller;
-
-  List pages = [
-    const MainFoodPage(),
-    Container(
-      child: const Center(
-        child: Text("Second page"),
-      ),
-    ),
-    Container(
-      child: const Center(
-        child: Text("Third page"),
-      ),
-    ),
-    Container(
-      child: const Center(
-        child: Text("Fourth page"),
-      ),
-    ),
-  ];
 
   void onTapNav(int index) {
     setState(() {
@@ -54,14 +36,10 @@ class _HomePageState extends State<HomePage> {
       const MainFoodPage(),
       Container(
         child: const Center(
-          child: Text("Second page"),
-        ),
-      ),
-      Container(
-        child: const Center(
           child: Text("Third page"),
         ),
       ),
+      const CartHistory(),
       Container(
         child: const Center(
           child: Text("Fourth page"),
